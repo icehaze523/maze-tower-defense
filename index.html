@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze Tower Defense</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🏰 Maze Tower Defense</h1>
+      <p class="subtitle">Build walls, create mazes, defend your base!</p>
+    </header>
+    
+    <!-- Game Area -->
+    <div class="game-wrapper">
+      <!-- Left Panel: Tower Selection -->
+      <aside class="left-panel">
+        <h2>🗼 Towers</h2>
+        <div id="tower-panel" class="tower-panel"></div>
+        
+        <div class="controls">
+          <button id="toggle-heatmap" class="btn btn-secondary">🗺️ Show Path</button>
+          <button id="demolish-btn" class="btn btn-demolish">🔨 Demolish</button>
+          <div class="control-hints">
+            <p><strong>Controls:</strong></p>
+            <p>• 1-5: Select tower</p>
+            <p>• U: Upgrade (hover)</p>
+            <p>• ESC: Cancel</p>
+            <p>• SPACE: Next wave</p>
+          </div>
+        </div>
+      </aside>
+      
+      <!-- Center: Game Canvas -->
+      <main class="game-container">
+        <canvas id="game-canvas"></canvas>
+        <div id="message" class="message" style="display: none;"></div>
+      </main>
+      
+      <!-- Right Panel: Game Info -->
+      <aside class="right-panel">
+        <h2>📊 Game Info</h2>
+        
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-label">💰 Gold:</span>
+            <span class="stat-value" id="gold">0</span>
+          </div>
+          
+          <div class="stat-item">
+            <span class="stat-label">❤️ Lives:</span>
+            <span class="stat-value" id="lives">0</span>
+          </div>
+          
+          <div class="stat-item">
+            <span class="stat-label">🌊 Wave:</span>
+            <span class="stat-value" id="wave">0 / 0</span>
+          </div>
+        </div>
+        
+        <button id="start-wave" class="btn btn-primary">Start Game</button>
+        
+        <div class="game-tips">
+          <h3>💡 Tips</h3>
+          <ul>
+            <li>Towers are walls! Use them to create mazes</li>
+            <li>You can't block all paths to your base</li>
+            <li>Red squares show spawn points for the next wave</li>
+            <li>Longer mazes give towers more time to shoot</li>
+            <li>Slow towers make mazes more effective</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+  
+  <!-- Game Over Modal -->
+  <div id="game-over-modal" class="modal">
+    <div class="modal-content">
+      <h2>💀 Game Over</h2>
+      <p>Your base has fallen!</p>
+      <p class="final-score">You survived <span id="final-wave">0</span> waves</p>
+      <button id="restart-btn" class="btn btn-primary">Play Again</button>
+    </div>
+  </div>
+  
+  <!-- Victory Modal -->
+  <div id="victory-modal" class="modal">
+    <div class="modal-content victory">
+      <h2>🎉 Victory!</h2>
+      <p>You've defended against all waves!</p>
+      <p class="victory-text">Your maze defense was impenetrable!</p>
+      <button id="restart-btn-victory" class="btn btn-primary">Play Again</button>
+    </div>
+  </div>
+  
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
